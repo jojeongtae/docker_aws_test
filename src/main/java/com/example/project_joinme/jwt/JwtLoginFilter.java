@@ -22,11 +22,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-@RequiredArgsConstructor
+
 public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final UserDAO userDAO;
+    public JwtLoginFilter(AuthenticationManager authenticationManager, JwtUtil jwtUtil , UserDAO userdao) {
+        this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
+        this.setFilterProcessesUrl("/api/login"); // 원하는 경로로 설정
+        this.userDAO = userdao;
+    }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
