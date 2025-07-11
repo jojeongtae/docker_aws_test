@@ -39,7 +39,7 @@ function App() {
             <Route path={"/main"} element={<MainLayout/>}>
                 <Route index element={<Intro/>}></Route>
                 <Route path={"users"} element={<Users/>}/>
-                <Route path={"i-liked"} element={<ILike/>}/>>
+                <Route path={"i-liked"} element={<ILike/>}/>
                 <Route path={"liked-by"} element={<LikedBy/>}/>
                 <Route path={"mypage"} element={<MyPage/>}/>
                 <Route path={"matched"} element={<Matched/>}/>
