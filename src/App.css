@@ -1,0 +1,1986 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*-----------------------------------------------------------*/
+/*공통*/
+:root {
+  --color-1rd: #FB5356;
+  --color-2rd: #FE9397;
+
+  --header-ht: 10.3rem;
+}
+
+.main-wrap {
+  min-height: calc(100vh - var(--header-ht));
+  box-sizing: border-box;
+}
+
+.inner {
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+/*header*/
+header {
+  width: 100%;
+  height: 10.3rem;
+  padding: 0 2rem;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(238, 238, 238);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+header > .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  width: 10rem;
+  display: block;
+}
+
+header .logo img {
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-list a {
+  font-size: 2rem;
+  transition: 0.2s;
+}
+
+.nav-list a:hover {
+  color: var(--color-1rd);
+  font-weight: 600;
+}
+
+header .userinfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .userinfo .username {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+/*button*/
+.btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-1rd);
+  color: #fff;
+  border-radius: 0.6rem;
+}
+
+.btn.gray {
+  background-color: #bbb;
+}
+
+.btn.gray:hover {
+  background-color: #aaa;
+}
+
+.btn.light-pink {
+  background-color: var(--color-2rd);
+}
+
+/*input*/
+input {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.profile-form label.custom-file-upload,
+label.custom-file-upload{
+  display: block;
+  width: fit-content;
+  color: #fff;
+  padding: 1rem 2rem;
+  background-color: var(--color-2rd);
+  font-weight: 500;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-file-upload input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.profile-preview {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1.2rem;
+}
+
+/*유저 정보 카드*/
+.user-card {
+  display: flex;
+  border-radius: 1.6rem;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.12);
+}
+
+/*-----------------------------------------------------------*/
+/*logo page*/
+#logo-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe0e6, #ffe4b5);
+  padding: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#logo-page .logo-image {
+  width: 30rem;
+  max-width: 80%;
+  margin-bottom: 4rem;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+  animation: fadeInDown 1s ease;
+}
+
+#logo-page .login-button {
+  background-color: var(--color-1rd);
+  color: white;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 3rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#logo-page .login-button:hover {
+  background-color: #ec4e51;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*login*/
+#login {
+  background-image: url('../public/backgroundintro.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* 어두운 반투명 레이어 */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+#login .welcome-text {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+#login .login-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 3rem 4rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 30rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#login .login-box h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#login .login-box button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-1rd);
+  color: #fff;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+
+#login .login-box button:hover {
+  background-color: #ec4e51;
+}
+
+/*프로필 작성*/
+#userinfo-post {
+  background-color: #fff5f6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+#userinfo-post .profile-form {
+  background-color: #ffffff;
+  padding: 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+  width: 40rem;
+  max-width: 90%;
+}
+
+.profile-form h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--color-1rd);
+}
+
+.profile-form label {
+  display: block;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-form .required {
+  color: red;
+  font-size: 0.9em;
+  margin-left: 0.4rem;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+}
+
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  outline: none;
+  border-color: var(--color-2rd);
+}
+
+.profile-form textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.profile-form button {
+  margin-top: 2.5rem;
+  width: 100%;
+  padding: 1.2rem;
+  background-color: var(--color-1rd);
+  color: white;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.profile-form button.submit-btn:hover {
+  background-color: #ec4e51;
+}
+
+/****유저 페이지****/
+/*main*/
+#user-main {
+  padding: 4rem;
+  box-sizing: border-box;
+  height: calc(100vh - var(--header-ht));
+}
+
+#user-main .user-main-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-image: url('../public/background.jpg');*/
+  background-size: cover;
+  background-position: center;
+  padding: 0 4rem;
+}
+
+#user-main .bg-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2rem;
+  padding: 4rem;
+  text-align: center;
+  max-width: 80rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#user-main .main-title {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+#user-main .main-paragraph {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+#user-main .main-banner {
+  width: 70%;
+  border-radius: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*소개팅 users*/
+#users .user-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.4rem;
+  margin: 3rem auto;
+  background-color: #f4f4f4;
+  border-radius: 1.6rem;
+  max-width: 100rem;
+  box-shadow: 0 0.4rem 1.6rem rgba(251, 83, 86, 0.1);
+}
+
+#users .user-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+#users .user-filter-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+  min-width: 20rem;
+}
+
+#users .user-filter-block label {
+  font-weight: bold;
+  color: #333;
+}
+
+#users .user-filter-block input,
+#users .user-filter-block select {
+  padding: 0.8rem 1.2rem;
+  border: 0.1rem solid #ddd;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 1.4rem;
+  background-color: #fff;
+}
+
+#users .user-filter-row > .user-filter-block > div {
+  display: flex;
+  gap: 2rem;
+  min-width: 22rem;
+}
+
+#users .user-filter-row > .user-filter-block > div > input {
+  flex: 1;
+  min-width: 8rem;
+}
+
+#users .mbti-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+#users .mbti-tag-label {
+  padding: 0.6rem 1.2rem;
+  border: 0.1rem solid #ddd;
+  border-radius: 2rem;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+#users .mbti-tag-label.selected {
+  background-color: var(--color-1rd);
+  color: #fff;
+  border-color: var(--color-1rd);
+}
+
+#users .mbti-tag-label input {
+  display: none;
+}
+
+#users .reset-button {
+  padding: 1rem 2rem;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: center;
+  transition: background-color 0.2s ease;
+}
+
+#users .reset-button:hover {
+  background-color: #666;
+}
+
+#users .users-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  padding: 3rem 2.5rem;
+  background-color: #fafafa;
+}
+
+#users .user-card {
+  flex-direction: column;
+  width: calc((100% - 4.8rem) / 3);
+}
+
+#users .user-card > .flex-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fbf4f4;
+  height: 100%;
+  margin-top: 1.4rem;
+  padding: 1.3rem 1.6rem;
+  border-radius: 1.2rem;
+}
+
+#users .user-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.2rem;
+}
+
+#users .user-info {
+  background-color: #fbf4f4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: #333;
+  margin-left: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+#users .user-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+#users .user-info-label {
+  font-weight: 500;
+  color: #777;
+}
+
+#users .user-info-value {
+  color: #222;
+  font-weight: 500;
+}
+
+#users .user-nickname {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+#users .user-intro {
+  margin-top: 1.2rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+#users .user-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1.8rem;
+}
+
+#users .like-button {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-image:
+          url('../public/heart_t2.png'),
+          linear-gradient(45deg, #fb5356, #ffb6b6);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: 3rem 3rem, cover;
+  color: #fff;
+  transition: 0.2s;
+}
+
+#users .like-button:hover {
+  background-image:
+          url('../public/heart_t2.png'),
+          linear-gradient(45deg, #fb5356, #ff6f6f);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: 3rem 3rem, cover;
+  transform: scale(1.05);
+}
+
+#users .block-button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-image:
+          url('../public/ico_alarm.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: 2rem 2rem, cover;
+  color: #fff;
+  transition: 0.2s;
+  margin-left: -1rem;
+  margin-bottom: -0.5rem;
+}
+
+#users .block-button:hover {
+  background-color: #eee;
+  transform: scale(1.05);
+}
+
+/*보낸 좋아요 ilike*/
+#ilike {
+  padding: 30px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+#ilike .ilike-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+#ilike .ilike-empty {
+  text-align: center;
+  color: #888;
+}
+
+#ilike .user-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  max-width: 900px;
+  margin-inline: auto;
+  gap: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#ilike .user-image {
+  width: 25rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+}
+
+#ilike .user-info-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+#ilike .user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf4f4;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 0.6rem;
+  color: #333;
+}
+
+#ilike .user-side-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 6rem;
+}
+
+#ilike .user-nickname {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.8rem;
+}
+
+#ilike .user-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+#ilike .user-info-label {
+  font-weight: 500;
+  color: #777;
+}
+
+#ilike .user-info-value {
+  color: #222;
+  font-weight: 500;
+}
+
+#ilike .user-intro {
+  margin-top: 1.2rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+#ilike .ilike-button {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-image:
+          url('../public/ico_close.png'),
+          linear-gradient(45deg, #fb5356, #ffb6b6);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: 3rem 3rem, cover;
+  color: #fff;
+  transition: 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+#ilike .ilike-button:hover {
+  background-image:
+          url('../public/ico_close.png'),
+          linear-gradient(45deg, #fb5356, #ff6f6f);
+  transform: scale(1.05);
+}
+
+/*받은 좋아요 LikedBy*/
+#likedby {
+  padding: 3rem;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+#likedby .likedby-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.8rem;
+}
+
+#likedby .likedby-empty {
+  text-align: center;
+  color: #888;
+}
+
+#likedby .likedby-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  max-width: 90rem;
+  margin-inline: auto;
+  gap: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#likedby .user-image {
+  width: 25rem; /* 250px는 이미 rem */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  flex-shrink: 0;
+}
+
+#likedby .user-info-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+#likedby .user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf4f4;
+  padding: 1rem;
+  border-radius: 1rem;
+  gap: 0.6rem;
+  color: #333;
+}
+
+#likedby .user-side-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 6rem;
+  gap: 1rem;
+}
+
+#likedby .user-nickname {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.8rem;
+}
+
+#likedby .user-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+#likedby .user-info-label {
+  font-weight: 500;
+  color: #777;
+}
+
+#likedby .user-info-value {
+  color: #222;
+  font-weight: 500;
+}
+
+#likedby .user-intro {
+  margin-top: 1.2rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+#likedby .likedby-button {
+  padding: 0.8rem 1.2rem;
+  background-color: #fb5356;
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1.6rem;
+}
+
+#likedby .likedby-button:hover {
+  background-color: #e13b3f;
+}
+
+#likedby .likedby-button.report {
+  background-color: #999;
+}
+
+#likedby .likedby-button.report:hover {
+  background-color: #666;
+}
+
+
+/*매칭 Matched*/
+#matched {
+  position: relative;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#matched .background-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+#matched .bg-heart {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.6;
+  animation-name: float-around;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#matched .bg-heart1 { left: 5%;  animation-duration: 12s;  animation-delay: 0s;  transform: scale(1); }
+#matched .bg-heart2 { left: 15%; animation-duration: 10s;  animation-delay: 1s;  transform: scale(0.8); }
+#matched .bg-heart3 { left: 25%; animation-duration: 14s;  animation-delay: 2s;  transform: scale(1.1); }
+#matched .bg-heart4 { left: 35%; animation-duration: 13s;  animation-delay: 3s;  transform: scale(0.9); }
+#matched .bg-heart5 { left: 45%; animation-duration: 11s;  animation-delay: 4s;  transform: scale(1.2); }
+#matched .bg-heart6 { left: 55%; animation-duration: 15s;  animation-delay: 5s;  transform: scale(0.7); }
+#matched .bg-heart7 { left: 65%; animation-duration: 14s;  animation-delay: 6s;  transform: scale(1); }
+#matched .bg-heart8 { left: 75%; animation-duration: 12s;  animation-delay: 7s;  transform: scale(1.3); }
+#matched .bg-heart9 { left: 85%; animation-duration: 13s;  animation-delay: 8s;  transform: scale(1); }
+#matched .bg-heart10 { left: 95%; animation-duration: 10s; animation-delay: 9s; transform: scale(0.8); }
+#matched .bg-heart11 { left: 10%; animation-duration: 16s; animation-delay: 1.5s; transform: scale(0.9); }
+#matched .bg-heart12 { left: 20%; animation-duration: 12s; animation-delay: 2.5s; transform: scale(1.1); }
+#matched .bg-heart13 { left: 30%; animation-duration: 13s; animation-delay: 3.5s; transform: scale(1); }
+#matched .bg-heart14 { left: 40%; animation-duration: 11s; animation-delay: 4.5s; transform: scale(1.3); }
+#matched .bg-heart15 { left: 50%; animation-duration: 14s; animation-delay: 5.5s; transform: scale(0.8); }
+#matched .bg-heart16 { left: 60%; animation-duration: 15s; animation-delay: 6.5s; transform: scale(1.2); }
+#matched .bg-heart17 { left: 70%; animation-duration: 12s; animation-delay: 7.5s; transform: scale(0.9); }
+#matched .bg-heart18 { left: 80%; animation-duration: 13s; animation-delay: 8.5s; transform: scale(1.1); }
+#matched .bg-heart19 { left: 90%; animation-duration: 11s; animation-delay: 9.5s; transform: scale(1); }
+#matched .bg-heart20 { left: 95%; animation-duration: 14s; animation-delay: 10.5s; transform: scale(1.3); }
+#matched .bg-heart21 { left: 5%; animation-duration: 12s; animation-delay: 11.5s; transform: scale(0.7); }
+#matched .bg-heart22 { left: 15%; animation-duration: 10s; animation-delay: 12.5s; transform: scale(1); }
+#matched .bg-heart23 { left: 25%; animation-duration: 13s; animation-delay: 13.5s; transform: scale(0.9); }
+#matched .bg-heart24 { left: 35%; animation-duration: 11s; animation-delay: 14.5s; transform: scale(1.2); }
+#matched .bg-heart25 { left: 45%; animation-duration: 15s; animation-delay: 15.5s; transform: scale(1); }
+#matched .bg-heart26 { left: 55%; animation-duration: 14s; animation-delay: 16.5s; transform: scale(1.1); }
+#matched .bg-heart27 { left: 65%; animation-duration: 12s; animation-delay: 17.5s; transform: scale(0.8); }
+#matched .bg-heart28 { left: 75%; animation-duration: 13s; animation-delay: 18.5s; transform: scale(1.3); }
+#matched .bg-heart29 { left: 85%; animation-duration: 11s; animation-delay: 19.5s; transform: scale(1); }
+#matched .bg-heart30 { left: 95%; animation-duration: 14s; animation-delay: 20.5s; transform: scale(0.9); }
+
+@keyframes float-around {
+  0% {
+    top: 110%;
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    top: 50%;
+    opacity: 0.8;
+    transform: translateX(1.5rem) scale(1.1);
+  }
+  100% {
+    top: -10%;
+    opacity: 0;
+    transform: translateX(-1.5rem) scale(1.2);
+  }
+}
+
+#matched .matched-container {
+  position: relative;
+  z-index: 2;
+  width: 100rem;
+  margin: 0 auto;
+}
+
+#matched .matched-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.8rem;
+}
+
+#matched .matched-empty {
+  text-align: center;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+#matched .card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+#matched .user-card {
+  width: calc((100% - 4rem) / 3);
+  background: #fff;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(255, 77, 109, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: transform 0.2s ease;
+}
+
+#matched .user-card:hover {
+  transform: translateY(-0.4rem);
+}
+
+#matched .user-img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  border: 0.2rem solid #aaa;
+}
+
+#matched .user-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fbf4f4;
+  padding: 1.4rem 1.2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.3rem 0.8rem rgba(255, 182, 193, 0.2);
+  border: 0.1rem solid #ffe0ec;
+}
+
+#matched .info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 1.4rem;
+}
+
+#matched .info .label {
+  color: #ba4a84;
+  font-weight: 600;
+}
+
+#matched .info .value {
+  color: #555;
+  font-weight: 500;
+}
+
+#matched .nickname {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+#matched .user-side-buttons {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+#matched .matched-button {
+  width: 50%;
+  padding: 1rem 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+#matched .matched-button.join {
+  background-color: #ff6f91;
+}
+
+#matched .matched-button.join:hover {
+  background-color: #ff386b;
+}
+
+#matched .matched-button.leave {
+  background-color: #ccc;
+  color: #333;
+}
+
+#matched .matched-button.leave:hover {
+  background-color: #aaa;
+}
+
+/* 마이페이지 MyPage */
+#mypage {
+  padding: 3rem;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+#mypage .user-card {
+  display: block;
+  max-width: 50rem;
+  margin: 5rem auto;
+  padding: 3rem;
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.12);
+}
+
+#mypage .user-card:hover {
+  transform: none;
+}
+
+#mypage .user-image {
+  display: block;
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+#mypage .mypage-info-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: #fbf4f4;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 1rem rgba(255, 160, 175, 0.1);
+}
+
+#mypage .user-nickname {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+#mypage .user-info-row {
+  display: flex;
+  color: #444;
+  font-size: 1.6rem;
+}
+
+#mypage .user-info-label {
+  width: 12rem;
+  font-weight: 600;
+  color: #ba4a84;
+}
+
+#mypage .user-info-value {
+  font-weight: 500;
+  color: #555;
+}
+
+#mypage .user-intro {
+  margin-top: 1.6rem;
+  line-height: 1.6;
+  color: #444;
+  font-size: 1.6rem;
+}
+
+#mypage .mypage-buttons-centered {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+#mypage .mypage-btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: linear-gradient(120deg, #fb5356, #fd9a9a);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mypage .mypage-btn:hover {
+  background: linear-gradient(45deg, #fb5356, #ff6f6f);
+}
+
+#mypage .mypage-btn.gray {
+  background: #bbb;
+}
+
+#mypage .mypage-btn.gray:hover {
+  background: #aaa;
+}
+
+#mypage .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#mypage .modal-content {
+  background: #fff;
+  border-radius: 1.2rem;
+  width: 50rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.2);
+  position: relative;
+  color: #1a2935;
+}
+
+#mypage .modal-content h3 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#mypage .close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background-color: #888;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+#mypage .date-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#mypage .date-item {
+  background: #fef8f8;
+  border: 0.1rem solid #ffc6c6;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+#mypage .date-item p {
+  margin: 0.8rem 0;
+  line-height: 1.6;
+}
+
+#mypage .date-item .tit {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+#mypage .date-item p span {
+  color: #555;
+  width: 4rem;
+  display: inline-block;
+}
+
+#mypage .partner-img {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 1rem;
+  border: 0.1rem solid #ccc;
+}
+
+#mypage .course-img {
+  width: 27rem;
+  height: 18rem;
+  border-radius: 1rem;
+  margin-top: 1.2rem;
+  border: 0.1rem solid #ddd;
+}
+
+.reportlist-wrapper {
+  width: 100%;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reportlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reportlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reportlist-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.reportlist-wrapper .text-center {
+  text-align: center;
+  color: #666;
+  padding: 20px 0;
+}
+
+.reportlist-wrapper .btn.gray.small {
+  background-color: #888;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/*매칭 JoinMe*/
+#joinme {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  color: #1a2935;
+}
+
+#joinme .top-sections {
+  display: flex;
+  gap: 4rem;
+}
+
+#joinme .profile-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#joinme .profile-section .mbti {
+  font-size: 1.8rem;
+  margin-top: 0;
+  color: var(--color-1rd);
+  font-weight: 600;
+}
+
+#joinme .profile-img {
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  border: 0.2rem solid #aaa;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+#joinme .profile-name {
+  font-size: 2.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+#joinme .image-container {
+  width: 27rem;
+  height: 18rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+#joinme .course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#joinme .compatibility-section {
+  flex: 2;
+  background: linear-gradient(140deg, #FFEDED, #FFDEDF);
+  border-radius: 1rem;
+  padding: 2.5rem 4rem;
+  color: #333;
+  box-sizing: border-box;
+}
+
+#joinme .compatibility-section h3 {
+  margin-top: 4.5rem;
+}
+
+#joinme .course-list-container {
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  padding: 2rem;
+  color: #333;
+}
+
+#joinme .course-item {
+  display: flex;
+  gap: 1.5rem;
+  background: #fff;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  border: 0.1rem solid #ddd;
+}
+
+#joinme .course-info {
+  flex: 1;
+}
+
+#joinme .course-info p {
+  margin: 0;
+}
+
+#joinme .course-info h4 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#joinme .course-info .address {
+  width: fit-content;
+  margin-top: 1rem;
+  background: #f2f2f2;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #d5d5d5;
+  color: #555;
+  margin-bottom: 3.5rem;
+}
+
+#joinme .course-map {
+  width: 27rem;
+  height: 18rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 0.1rem solid #ddd;
+}
+
+#joinme .ask-date {
+  background-color: var(--color-1rd);
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  font-size: 1.5rem;
+}
+
+#joinme .ask-date:hover {
+  background-color: #ec4e51;
+  transform: scale(1.05);
+}
+
+#joinme .ask-date:active {
+  transform: scale(0.98);
+}
+
+#joinme .chat-modal {
+  position: fixed;
+  top: 12rem;
+  left: 2rem;
+  width: 32rem;
+  height: 50rem;
+  background: white;
+  border: 0.1rem solid #ddd;
+  border-radius: 1.2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+#joinme .chat-header {
+  background: #f5f5f5;
+  padding: 1.2rem;
+  font-weight: bold;
+  border-bottom: 0.1rem solid #ccc;
+  text-align: center;
+}
+
+#joinme .chat-body {
+  padding: 1.2rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#joinme .chat-message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1.2rem;
+  max-width: 85%;
+}
+
+#joinme .chat-message.mine {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+#joinme .chat-message.theirs {
+  justify-content: flex-start;
+}
+
+#joinme .chat-profile-img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#joinme .chat-bubble {
+  padding: 1rem 1.4rem;
+  border-radius: 1.8rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  background-color: #f1f0f0;
+}
+
+#joinme .chat-message.mine .chat-bubble {
+  background-color: #d1e7dd;
+}
+
+#joinme .chat-input-form {
+  display: flex;
+  border-top: 0.1rem solid #ccc;
+  padding: 1rem;
+}
+
+#joinme .chat-input-form input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 2rem;
+  outline: none;
+}
+
+#joinme .chat-input-form button {
+  margin-left: 0.8rem;
+  padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#joinme .date-request-message {
+  background-color: #ffe2ec;
+  border: 0.2rem solid #b6c5ff;
+  border-radius: 1.2rem;
+  padding: 1.2rem;
+  color: #0e0c0c;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  animation: pulseHighlight 0.5s ease-in-out;
+}
+
+#joinme .date-form {
+  background: #fbf4f4;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+}
+
+#joinme .date-form label span {
+  color: #666;
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+#joinme .date-form button {
+  background: #555;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+@keyframes pulseHighlight {
+  0% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 rgba(255, 182, 193, 0);
+  }
+  50% {
+    transform: scale(1.01);
+    box-shadow: 0 0 1rem rgba(255, 182, 193, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 182, 193, 0);
+  }
+}
+
+#joinme .date-img {
+  object-fit: cover;
+  height: 10rem;
+}
+
+/****어드민 페이지****/
+#admin {
+  padding: 3rem 0;
+}
+
+#admin .admin-userlist-title {
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+  color: #222;
+}
+
+#admin .admin-userlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0.1rem solid #e0e0e0;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.05);
+}
+
+#admin .admin-userlist-table th {
+  background-color: #f5f5f5;
+  padding: 1.2rem;
+  font-weight: 600;
+  border-bottom: 0.1rem solid #ddd;
+  text-align: center;
+}
+
+#admin .admin-userlist-table td {
+  padding: 1.2rem;
+  border-bottom: 0.1rem solid #eee;
+  text-align: center;
+}
+
+#admin .detail-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #ff7eb9;
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#admin .hide-btn {
+  padding: 0.6rem 1rem;
+  background-color: #aaa;
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+#admin .unhide-btn {
+  padding: 0.6rem 1rem;
+  background-color: #7dc87d;
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+#admin .admin-userlist-container {
+  padding: 3.2rem;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+#admin .admin-userlist-title {
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+  color: #222;
+}
+
+#admin .admin-course-topbar {
+  margin-bottom: 4rem;
+  text-align: right;
+}
+
+#admin .admin-course-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #ff7eb9;
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+#admin .admin-course-search {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+#admin .admin-course-select,
+#admin .admin-course-input {
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid #ccc;
+  font-size: 1.5rem;
+}
+
+#admin .admin-course-gray-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  padding: 0.6rem 1rem;
+  background-color: #bbb;
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+}
+
+/*코스리스트*/
+#admin.courseList .admin-userlist-table td {
+  text-align: left;
+  line-height: 1.4;
+}
+
+/*데이트 코스 추가*/
+#add-course {
+  max-width: 60rem;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#add-course h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #333;
+}
+
+#add-course form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-course .form-group {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#add-course label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: #555;
+}
+
+#add-course input[type="text"],
+#add-course select,
+#add-course textarea {
+  padding: 1rem 1.4rem;
+  border-radius: 0.6rem;
+  border: 0.15rem solid #ddd;
+  transition: border-color 0.3s ease;
+  font-size: 1.5rem;
+}
+
+#add-course select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#add-course textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+#add-course .profile-upload-wrapper {
+  margin-bottom: 2.4rem;
+}
+
+#add-course .custom-file-upload {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  background-color: #eee;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#add-course .custom-file-upload input[type="file"] {
+  display: none;
+}
+
+#add-course .profile-preview {
+  display: block;
+  margin-top: 1.2rem;
+  max-width: 100%;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+#add-course .btn-wrap {
+  justify-content: center;
+}
+
+#add-course .btn-wrap > * {
+  font-size: 1.5rem;
+  padding: 1.2rem 2.8rem;
+}
+
+/*프로필 상세보기 팝업*/
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-overlay .popup-content {
+  width: 40rem;
+  max-height: 85vh;
+  background-color: #fff;
+  padding: 2.4rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.popup-overlay .popup-content::-webkit-scrollbar {
+  display: none;
+}
+
+.popup-overlay .popup-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.popup-overlay .popup-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 0.1rem solid #ddd;
+  aspect-ratio: 1 / 1;
+}
+
+.popup-overlay .popup-info {
+  background-color: #fbf4f4;
+  height: 100%;
+  padding: 1.3rem 1.6rem;
+  border-radius: 1.2rem;
+  margin-top: 0;
+}
+
+.popup-overlay .popup-info li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  margin-top: 0.6rem;
+}
+
+.popup-overlay .popup-info li .user-info-label {
+  font-weight: 500;
+  color: #777;
+}
+
+.popup-overlay .popup-info li .user-info-value {
+  color: #222;
+  font-weight: 500;
+}
+
+.popup-overlay .popup-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.popup-overlay .popup-intro {
+  margin-top: 2rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.popup-overlay .btn-wrap {
+  justify-content: center;
+  margin-top: 0;
+}
+
+.popup-overlay .btn-wrap button {
+  font-size: 1.5rem;
+}
+/*광고 배너  main content까지*/
+.layout-3col {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.side-banner-left{
+  position: fixed;
+  top: 150px;
+  left: 0;
+  width: 259px;
+  flex-shrink: 0;
+}
+
+.side-banner-right{
+  position: fixed;
+  top: 150px;
+  right: 0;
+  width: 259px;
+  flex-shrink: 0;
+}
+.side-banner img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.main-content {
+  flex-grow: 1;
+  min-width: 0;
+  /*background-image: url("../public/background.jpg"); !* public/images/bg.jpg 경로 *!*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* 화면 높이 채우기 */
+  padding: 20px 0;
+}
+.main-background-img{
+  background-image: url("../public/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
